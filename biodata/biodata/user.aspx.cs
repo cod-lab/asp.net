@@ -15,21 +15,13 @@ namespace biodata
     {
         readonly SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\user_info.mdf;Integrated Security=True");
 
-        static int i;                       // for btnEnter & btnUpdate
+        static int i;       // for btnEnter & btnUpdate
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (con.State == ConnectionState.Open)
                 con.Open();
             con.Open();
-
-            /* for(int y = 1; y <= 13; y++)
-            {
-                string x = "delete from details where id =" + y;
-                sqlcmd(ref x);
-            }
-            string x = "delete from details where id > 15";
-            sqlcmd(ref x); */
 
             display();
         }
@@ -42,26 +34,6 @@ namespace biodata
             cmd.ExecuteNonQuery();
 
             return cmd;
-
-            /* nmtxt.Text = "";
-            notxt.Text = "";
-            etxt.Text = "";
-            pgddl.Text = "";
-            pgclgtxt.Text = "";
-            pgyrtxt.Text = "";
-            pgpertxt.Text = "";
-            gddl.Text = "";
-            gclgtxt.Text = "";
-            gyrtxt.Text = "";
-            gpertxt.Text = "";
-            stxt.Text = "";
-            syrtxt.Text = "";
-            cotxt.Text = "";
-            sstxt.Text = "";
-            pstxt.Text = "";
-            pdtxt.Text = "";
-
-            display(); */
         }
 
         public void display()
@@ -109,7 +81,7 @@ namespace biodata
 
                 txtEnable(false);
             }
-            else                                        // btnEnter
+            else        // btnEnter
             {
                 SqlCommand cmd = con.CreateCommand();
                 cmd.CommandType = CommandType.Text;
@@ -156,8 +128,6 @@ namespace biodata
                 {
                     string z = "window.onload = function(){ alert('NO RECORD FOUND\\n  PLEASE TRY AGAIN'); }";
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", z, true);
-                    //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('NO RECORD FOUND\\n  PLEASE TRY AGAIN')", true);
-                    //Response.Write("<script>alert('NO RECORD FOUND\\n  PLEASE TRY AGAIN')</script>");
                 }
             }
         }
@@ -165,33 +135,6 @@ namespace biodata
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/user");
-
-            //string z = "window.onload = function(){ alert('cancel'); window.location = 'user'; }";
-            //ClientScript.RegisterStartupScript(this.GetType(), "alert", z, true);
-
-            /* Response.Write("<script>alert('cancel')</script>"); */
-            /* < script type = "text/javascript" >
-                function Showalert() {
-                    alert('Cancel');
-                }
-            </ script > */
-            /* Type cstype = this.GetType();
-
-            // Get a ClientScriptManager reference from the Page class.
-            ClientScriptManager cs = Page.ClientScript;
-
-            // Check to see if the startup script is already registered.
-            if (!cs.IsStartupScriptRegistered(cstype, "PopupScript"))
-            {
-                String cstext = "alert('cancel');";
-                cs.RegisterStartupScript(cstype, "PopupScript", cstext, true);
-            } */
-            //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('cancel')", true);
-
-            /* con.Close();
-            Page_Load(sender, e); */
-            /* ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('cancel')", true); */
-            /* Page.Response.Redirect(Page.Request.Url.ToString(), true); */
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -203,105 +146,15 @@ namespace biodata
 
                 string z = "window.onload = function(){ alert('Data inserted successfully'); window.location = 'user'; }";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", z, true);
-
-                //Response.Write("<script>alert('Data inserted successfully')</script>");
-                //Response.Redirect("~/user");
-                /* Page.Response.Redirect(Page.Request.Url.ToString(), true); */
-
-                /* nmtxt.Text = "";
-                notxt.Text = "";
-                etxt.Text = "";
-                /* pgddl.Text = "";
-                pgclgtxt.Text = "";
-                pgyrtxt.Text = "";
-                pgpertxt.Text = "";
-                gddl.Text = "";
-                gclgtxt.Text = "";
-                gyrtxt.Text = "";
-                gpertxt.Text = "";
-                stxt.Text = "";
-                syrtxt.Text = "";
-                spertxt.Text = "";
-                cotxt.Text = "";
-                sstxt.Text = "";
-                pstxt.Text = "";
-                pdtxt.Text = "";
-
-                display(); */
             }
-            else                                        // btnUpdate
+            else        // btnUpdate
             {
-                //string p = nmtxt.Text;
-                //string q = etxt.Text;
-                //string x = "update details set name='" + nmtxt.Text + "', no='" + Convert.ToInt64(notxt.Text) + "', email='" + etxt.Text + "', pg='" + pgddl.Text + "', pg_clg='" + pgclgtxt.Text + "', pg_yr='" + Convert.ToInt64(pgyrtxt.Text) + "', pg_per='" + Convert.ToDecimal(pgpertxt.Text) + "', g='" + gddl.Text + "', g_clg='" + gclgtxt.Text + "', g_yr='" + Convert.ToInt64(gyrtxt.Text) + "', g_per='" + Convert.ToDecimal(gpertxt.Text) + "', scl='" + stxt.Text + "', scl_yr='" + Convert.ToInt64(syrtxt.Text) + "', scl_per='" + Convert.ToDecimal(spertxt.Text) + "', co='" + cotxt.Text + "', ss='" + sstxt.Text + "', ps='" + pstxt.Text + "', pd='" + pdtxt.Text + "' where name='" + nmtxt.Text + "' AND email='" + etxt.Text + "'";
-                //string x = "update details set name='" + nmtxt.Text + "', no='" + Convert.ToInt64(notxt.Text) + "', email='" + etxt.Text + "', pg='" + pgddl.Text + "', pg_clg='" + pgclgtxt.Text + "', pg_yr='" + Convert.ToInt64(pgyrtxt.Text) + "', pg_per='" + Convert.ToDecimal(pgpertxt.Text) + "', g='" + gddl.Text + "', g_clg='" + gclgtxt.Text + "', g_yr='" + Convert.ToInt64(gyrtxt.Text) + "', g_per='" + Convert.ToDecimal(gpertxt.Text) + "', scl='" + stxt.Text + "', scl_yr='" + Convert.ToInt64(syrtxt.Text) + "', scl_per='" + Convert.ToDecimal(spertxt.Text) + "', co='" + cotxt.Text + "', ss='" + sstxt.Text + "', ps='" + pstxt.Text + "', pd='" + pdtxt.Text + "' where name='" + p + "' AND email='" + q + "'";
-                //string x = "update details set name='" + nmtxt.Text + "', no='" + Convert.ToInt64(notxt.Text) + "', email='" + etxt.Text + "', pg='" + pgddl.Text + "', pg_clg='" + pgclgtxt.Text + "', pg_yr='" + Convert.ToInt64(pgyrtxt.Text) + "', pg_per='" + Convert.ToDecimal(pgpertxt.Text) + "', g='" + gddl.Text + "', g_clg='" + gclgtxt.Text + "', g_yr='" + Convert.ToInt64(gyrtxt.Text) + "', g_per='" + Convert.ToDecimal(gpertxt.Text) + "', scl='" + stxt.Text + "', scl_yr='" + Convert.ToInt64(syrtxt.Text) + "', scl_per='" + Convert.ToDecimal(spertxt.Text) + "', co='" + cotxt.Text + "', ss='" + sstxt.Text + "', ps='" + pstxt.Text + "', pd='" + pdtxt.Text + "' where id=1";
                 string x = "update details set name='" + nmtxt.Text + "', no='" + Convert.ToInt64(notxt.Text) + "', email='" + etxt.Text + "', pg='" + pgddl.Text + "', pg_clg='" + pgclgtxt.Text + "', pg_yr='" + Convert.ToInt64(pgyrtxt.Text) + "', pg_per='" + Convert.ToDecimal(pgpertxt.Text) + "', g='" + gddl.Text + "', g_clg='" + gclgtxt.Text + "', g_yr='" + Convert.ToInt64(gyrtxt.Text) + "', g_per='" + Convert.ToDecimal(gpertxt.Text) + "', scl='" + stxt.Text + "', scl_yr='" + Convert.ToInt64(syrtxt.Text) + "', scl_per='" + Convert.ToDecimal(spertxt.Text) + "', co='" + cotxt.Text + "', ss='" + sstxt.Text + "', ps='" + pstxt.Text + "', pd='" + pdtxt.Text + "' where id='" + i + "'";
                 sqlcmd(ref x);
 
                 string z = "window.onload = function(){ alert('Data updated successfully'); window.location = 'user'; }";
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", z, true);
-
-                // Response.Write("<script>alert('Data updated successfully')</script>");
-
-                /* btnCancel_Click(sender, e); */
-
-                // Response.Redirect("~/user");
-                /* Page.Response.Redirect(Page.Request.Url.ToString(), true); */
-
-                /* headtxt.ForeColor = System.Drawing.Color.Black;
-                btnCancel.Visible = false;
-                btnEdit.Text = "Edit";
-                btnEdit.Enabled = true;
-                btnSave.Text = "Save";
-
-                nmtxt.Text = "";
-                notxt.Text = "";
-                etxt.Text = "";
-                /* pgddl.Text = ""; 
-                pgclgtxt.Text = "";
-                pgyrtxt.Text = "";
-                pgpertxt.Text = "";
-                /* gddl.Text = "";
-                gclgtxt.Text = "";
-                gyrtxt.Text = "";
-                gpertxt.Text = "";
-                stxt.Text = "";
-                syrtxt.Text = "";
-                spertxt.Text = "";
-                cotxt.Text = "";
-                sstxt.Text = "";
-                pstxt.Text = "";
-                pdtxt.Text = "";
-
-                display(); */
             }
-
-            /* string x = "insert into details values('" + nmtxt.Text + "','" + Convert.ToInt64(notxt.Text) + "','" + etxt.Text + "','" + pgddl.Text + "','" + pgclgtxt.Text + "','" + Convert.ToInt64(pgyrtxt.Text) + "','" + Convert.ToInt64(pgpertxt.Text) + "','" + gddl.Text + "','" + gclgtxt.Text + "','" + Convert.ToInt64(gyrtxt.Text) + "','" + Convert.ToInt64(gpertxt.Text) + "','" + stxt.Text + "','" + Convert.ToInt64(syrtxt.Text) + "','" + Convert.ToInt64(spertxt.Text) + "','" + cotxt.Text + "','" + sstxt.Text + "','" + pstxt.Text + "','" + pdtxt.Text + "')";
-            sqlcmd(ref x);
-            Response.Write("<script>alert('Data inserted successfully')</script>"); */
-
-            /* ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true); */
-
-            /* msgtxt.Visible = true;
-            int time = 0; */
-            /* do {
-                    int count ++;
-            } while (count < 200); */
-
-            /* while (time < 90000000) time++;
-            if (time == 90000000) msgtxt.Visible = false; */
-
-            /* if (time == 0)
-            {
-                msgtxt.Visible = true;
-                while (time < 90000000) time++;
-            }
-            if (time == 90000000)
-            {
-                msgtxt.Visible = false;
-                time = 0;
-            } */
         }
 
         protected void btnView_Click(object sender, EventArgs e)

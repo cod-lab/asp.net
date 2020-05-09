@@ -3,29 +3,15 @@
     
     <style>
         .b { font-weight: bold; }
-        iv { border: 1px solid;}
-        .panel-body {
-            order: 2px solid; 
-            ox-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-            adding: 50px;
-        }
         .panel.resume { 
-            order: 2px solid; 
-            ackground-color: Gainsboro;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
             padding: 40px;
         }
-        /* div { border: 1px solid; } */
         .panel-body.resume {
-            ackground-color: Gainsboro;
-            order-bottom: 2px solid white;
-            ackground-color: white;
-            -index:5;
             border: 2px solid;
             padding: 50px;
         }
         .row.b {
-            ackground-color: grey;
             border-top: 1px solid; 
             border-bottom: 1px solid;
             font-weight: bold;
@@ -188,7 +174,7 @@
 
                             </section>
                         </div>
-                    </section><center><asp:GridView ID="GridView1" runat="server" width="1150px"/></center>
+                    </section>
                 </div>
             </div>
         </section>

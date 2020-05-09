@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <style>
-        iv { border: 1px solid; }
         .btn.btn-lg.cancel {
             background-color: transparent;
             border:1px solid #f0ad4e;

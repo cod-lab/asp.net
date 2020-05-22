@@ -198,6 +198,7 @@ namespace biodata
         {
             if (btnSave.Text == "Save")
             {
+                //string x = "delete from details where id > 0";
                 string x = "insert into details values('" + nmtxt.Text + "','" + Convert.ToInt64(notxt.Text) + "','" + etxt.Text + "','" + pgddl.Text + "','" + pgclgtxt.Text + "','" + Convert.ToInt64(pgyrtxt.Text) + "','" + Convert.ToDecimal(pgpertxt.Text) + "','" + gddl.Text + "','" + gclgtxt.Text + "','" + Convert.ToInt64(gyrtxt.Text) + "','" + Convert.ToDecimal(gpertxt.Text) + "','" + stxt.Text + "','" + Convert.ToInt64(syrtxt.Text) + "','" + Convert.ToDecimal(spertxt.Text) + "','" + cotxt.Text + "','" + sstxt.Text + "','" + pstxt.Text + "','" + pdtxt.Text + "')";
                 sqlcmd(ref x);
 

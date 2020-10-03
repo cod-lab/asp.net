@@ -1,7 +1,11 @@
 ```bash
-To run:-
+To run:- (Visual Studio should be installed)
 
-1. open 'Solution' in Visual Studio and unload/delete/remove the project(only from software, not from disk)
+1. open Solution 'asp.net/biodata/biodata.sln' and run the application in sotware
 
-2. add project by locating it at "loc": "~\asp.net\biodata\biodata\biodata.csproj"
+2. if it doesn't run and shows error then stop the program and
+
+    -unload/delete/remove the project(only from Visual Studio, not from disk)
+
+    -add project by locating it at "loc": "~\asp.net\biodata\biodata\biodata.csproj"
 ```
